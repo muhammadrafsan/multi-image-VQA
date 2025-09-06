@@ -1,0 +1,30 @@
+{
+    "Domain": "Computer Science",
+    "Journal Name": "EMNLP",
+    "Paper Name": "TinyBERT: Distilling BERT for Natural Language Understanding",
+    "TinyBERT 1.png": {
+        "caption": "Figure 1: The illustration of TinyBERT learning.",
+        "Question": "What are the key stages in TinyBERT's learning process as illustrated in Figure 1?",
+        "Answer": "TinyBERT’s learning process follows a structured two-phase approach: first, general distillation is performed using a large-scale text corpus to produce a general-purpose TinyBERT model. This is followed by task-specific distillation, where task datasets are augmented and used to fine-tune the model for specialized tasks. The flow highlights how TinyBERT compresses knowledge from a larger teacher model while leveraging data augmentation to enhance task adaptability, resulting in an efficient and versatile student model."
+    },
+    "TinyBERT 2.png": {
+        "caption": "Figure 2: The details of transformer-layer distillation consisting of AttnLoss (attention-based distillation) and Hidnloss (hidden-state-based distillation).",
+        "Question": "How does transformer-layer distillation operate in terms of attention-based and hidden-state-based learning in Figure 2?",
+        "Answer": "In transformer-layer distillation, the student model learns from the teacher through two complementary losses: AttnLoss aligns attention matrices to replicate how the teacher focuses on token relationships, ensuring interpretability across layers, while HidnLoss matches hidden states, guiding the student to mirror internal feature representations despite possible architectural differences—together enabling efficient and effective knowledge transfer."
+    },
+    "TinyBERT 3.png": {
+        "caption": "Table 1: Results are evaluated on the test set of the GLUE official benchmark. The best results for each group of students Models are in bold. The architecture of TinyBERT4 and BERTTINY is (M=4, d=312, di=1200), BERTSMALL is (M=4, d=512, di=2048), BERT4-PKD and DistilBERT4 are (M=4, d=768, di=3072), and the architecture of BERT6-PKD, DistilBERT6, and TinyBERT6 are (M=6, d=768, di=3072). All models are learned in a single task. manner. The inference speedup is evaluated on a single NVIDIA K80 GPU. It denotes that the comparison between MobileBERTTINY and TinyBERT4 may not be fair since the former has 24 layers and is task-agnosticly distilled. from IB-BERTLARGE, while the latter is a 4-layer model task specifically distilled from BERTBASE.",
+        "Question": "Which student model achieves the best overall performance in Table 1?",
+        "Answer": "Table 1 benchmarks various BERT student models on the GLUE test set, highlighting TinyBERT6 as the top performer among 6-layer variants across most tasks and overall average. The architectures vary in depth (M), hidden size (d), and intermediate size (di), with smaller models like TinyBERT4 and BERTTINY prioritizing compactness. Although TinyBERT4 shows strong task-specific performance, its comparison with MobileBERTTINY is noted as unfair due to differences in layer count and distillation strategy. All models demonstrate trade-offs between parameter size, FLOPs, accuracy, and inference speed, reinforcing the importance of tailored distillation for efficient model deployment."
+    },
+    "TinyBERT 4.png": {
+        "caption": "Table 2: Ablation studies of different procedures (i.e., TD, GD, and DA) of the two-stage learning framework. The variants are validated on the dev set.",
+        "Question": "What impact do TD, GD, and DA have on the performance of the two-stage learning framework according to Table 2?",
+        "Answer": "Removing any of the procedures—Task-Specific Distillation (TD), General Distillation (GD), or Data Augmentation (DA)—significantly lowers average performance across MNLI-m, MNLI-mm, MRPC, and CoLA. TinyBERT_4, which includes all three components, achieves the highest average (75.6), while the absence of GD drops it to 72.5, TD to 68.5, and DA to 68.4. This shows that each procedure contributes critically to model effectiveness, with TD and DA having particularly strong influence on CoLA performance."
+    },
+    "TinyBERT 5.png": {
+        "caption": "Table 3: Ablation studies of different distillation objects tives in the TinyBERT learning. The variants are vali dated on the dev set.",
+        "Question": "Which distillation objective contributes most significantly to TinyBERT's performance in Table 3?",
+        "Answer": "According to Table 3, removing individual distillation objectives such as embeddings (Embd), predictions (Pred), transformer layers (Trm), attention (Attn), or hidden states (Hidn) from the TinyBERT learning framework leads to a consistent drop in performance across MNLI-m, MNLI-mm, MRPC, and CoLA tasks. The full model (TinyBERT_4) achieves the highest average score (75.6), while excluding transformer-layer distillation (w/o Trm) causes the most dramatic decline (Avg 56.3), indicating that each objective plays a critical role—with transformer-based distillation being especially impactful."
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "Domain": "Computer Science",
+    "Journal Name": "EMNLP",
+    "Paper Name": "YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors",
+    "YOLOv7 1.png": {
+        "image": "YOLOv7/YOLOv7 1.png",
+        "caption": "Figure 1. Comparison with other real-time object detectors, our proposed methods achieve state-of-the-arts performance.",
+        "Question": "How does YOLOv7 compare to other real-time object detectors in terms of speed and accuracy?",
+        "Answer": "YOLOv7 outperforms other real-time object detectors like YOLOR, PPYOLOE, YOLOX, Scaled-YOLOv4, and YOLOv5 (r6.1) by achieving both higher average precision and faster inference times on the MS COCO dataset. The graph shows that YOLOv7 is positioned furthest toward the optimal region—high AP and low latency—and is noted to be 120% faster, confirming its state-of-the-art performance in real-time detection tasks."
+    },
+    "YOLOv7 2.png": {
+        "image": "YOLOv7/YOLOv7 2.png",
+        "caption": "Figure 2. Extended efficient layer aggregation networks. The proposed extended ELAN (E-ELAN) does not change the gradient transmis sion path of the original architecture at all, but use group convolution to increase the cardinality of the added features, and combine the features of different groups in a shuffle and merge cardinality manner. This way of operation can enhance the features learned by different feature maps and improve the use of parameters and calculations.",
+        "Question": "What architectural enhancements distinguish E-ELAN from previous efficient layer aggregation networks?",
+        "Answer": "E-ELAN builds upon ELAN by introducing group convolutions to expand cardinality and employing shuffle-and-merge operations to integrate features across groups, thereby enhancing feature diversity and utilization. Unlike VoVNet, CSPVoVNet, and ELAN, E-ELAN maintains the original gradient flow while increasing computational efficiency and representational power through structured cardinality manipulation, resulting in more effective parameter usage and improved feature learning."
+    },
+    "YOLOv7 3.png": {
+        "image": "YOLOv7/YOLOv7 3.png",
+        "caption": "Figure 3. Model scaling for concatenation-based models. From (a) to (b), we observe that when depth scaling is performed on concatenation-based models, the output width of a computational block also increases. This phenomenon will cause the input width of the subsequent transmission layer to increase. Therefore, we propose (c), that is, when performing model scaling on concatenation based models, only the depth in a computational block needs to be scaled, and the remaining of transmission layer is performed with corresponding width scaling.",
+        "Question": "Why is separate scaling of depth and width beneficial in concatenation-based models?",
+        "Answer": "Separate scaling, as shown in diagram (c), prevents the unintended increase in transmission layer width that occurs when depth is scaled in concatenation-based models. By isolating depth scaling within computational blocks and applying width scaling only to transmission layers, this approach maintains architectural efficiency, reduces unnecessary parameter growth, and ensures better control over model complexity and resource usage."
+    },
+    "YOLOv7 4.png": {
+        "image": "YOLOv7/YOLOv7 4.png",
+        "caption": "Figure 4. Planned re-parameterization model. In the proposed planned re-parameterization model, we found that a layer with residual or concatenation connections, its RepConv should not have identity connection. Under these circumstances, it can be replaced by RepConvN that contains no identity connections.",
+        "Question": "What modification does the planned re-parameterization model suggest for layers with residual or concatenation connections?",
+        "Answer": "The planned re-parameterization model recommends replacing RepConv layers with RepConvN in structures that include residual or concatenation connections, as identity connections in RepConv can interfere with effective feature learning. Illustrated in variants P3 and P4 of RepResNet, this adjustment ensures better compatibility and performance by removing identity paths, thereby optimizing the convolutional behavior within complex connection schemes."
+    },
+    "YOLOv7 5.png": {
+        "image": "YOLOv7/YOLOv7 5.png",
+        "caption": "Figure 5. Coarse for auxiliary and fine for lead head label assigner. Compare with normal model (a), the schema in (b) has auxiliary head. Different from the usual independent label assigner (c), we propose (d) lead head guided label assigner and (e) coarse-to-fine lead head guided label assigner. The proposed label assigner is optimized by lead head prediction and the ground truth to get the labels of training lead head and auxiliary head at the same time. The detailed implementation and constraint details will be elaborated in Appendix.",
+        "Question": "How does the coarse-to-fine lead head guided label assigner improve training over traditional methods?",
+        "Answer": "The coarse-to-fine lead head guided label assigner (Figure 5e) enhances training by using hierarchical predictions from the lead head to guide label assignment for both lead and auxiliary heads, integrating coarse and fine granularity. Unlike independent assigners (Figure 5c), this method aligns predictions more closely with ground truth, improving label quality and consistency across scales. It leverages shared supervision to optimize both heads simultaneously, leading to more robust and efficient learning."
+    }
+}
